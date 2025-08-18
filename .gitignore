@@ -1,0 +1,12 @@
+# dependencies
+node_modules/
+# builds
+frontend/dist/
+# runtime
+*.log
+# env files
+.env
+frontend/.env*
+backend/.env*
+# pm2
+.pids
