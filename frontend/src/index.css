@@ -1,0 +1,417 @@
+/*===== Global ===== */
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: #111827;
+  background: #f7f9fc;
+}
+
+/* Make forms & text uniform size */
+input, select, textarea, button, table, th, td, label, .label, .drawer-label {
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 12px !important;
+}
+
+/* ===== Buttons ===== */
+.btn-primary, .btn-secondary, .btn-danger {
+  font-size: 12px !important;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+.btn-primary { background: #2563eb; color: #fff; }
+.btn-secondary { background: #e5e7eb; color: #111827; }
+.btn-danger { background: #dc2626; color: #fff; }
+.btn-toggle-on { background: #2563eb !important; color: #fff !important; }
+
+/* ===== Toolbar / Brand ===== */
+.toolbar { padding: 10px 0; }
+.toolbar-inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.brand { display: flex; align-items: center; gap: 10px; }
+.logo-badge {
+  width: 28px; height: 28px; border-radius: 50%;
+  display: grid; place-items: center; font-weight: 700;
+  background: #2563eb; color: #fff;
+}
+
+/* ===== Panels / Sections ===== */
+.panel { background: #fff; padding: 12px; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+.panel + .panel { margin-top: 8px; }
+.section-header {
+  display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap;
+  background: #e8f2ff; padding: 8px 10px; border-radius: 8px;
+}
+.section-title-blue { color: #1e40af; font-weight: 600; }
+
+/* ONE blank line between sections */
+.panel { margin-bottom: 8px; }
+
+/* ===== Tables (scrollable lists) ===== */
+.table-wrap { width: 100%; }
+.table-scroll { max-height: 320px; overflow: auto; border: 1px solid #eef2f7; border-radius: 8px; }
+table { width: 100%; border-collapse: collapse; }
+thead th {
+  background: #e8f2ff; text-align: left; padding: 8px; border-bottom: 1px solid #dbeafe;
+  position: sticky; top: 0; z-index: 1;
+}
+tbody td { padding: 8px; border-bottom: 1px solid #eef2f7; }
+
+/* ===== Chips ===== */
+.badge {
+  display: inline-block; padding: 2px 8px; border-radius: 999px;
+  background: #eef2ff; color: #1e40af; border: 1px solid #dbeafe;
+}
+
+
+/* ===== Labels ===== */
+.label, .drawer-label, .label-blue { color: #1e40af; }
+
+.label,
+.drawer-label,
+.login-label,
+.section-title-blue {
+  width: 150px;
+  display: inline-block;
+  text-align: right;
+}
+
+/* Uniform label widths */
+.label,
+.drawer-label,
+.login-label,
+.section-title-blue {
+  display: inline-block;
+  width: 150px;
+}
+
+/* ===== Login ===== */
+.login-bg { min-height: 100vh; display: grid; place-items: center; background: linear-gradient(180deg, #e6f2ff, #ffffff); }
+.login-wrap .card {
+  width: 480px;
+  background: #e0f0ff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  border: 1px solid #1e40af;
+}
+.logo { display: flex; align-items: center; gap: 10px; justify-content: center; margin-bottom: 8px; }
+.logo-title { font-weight: 700; color: #1f2937; }
+.login-form { display: grid; gap: 12px; }
+.form-row > div { margin-bottom: 4px; color: #1e40af; }
+
+/* ===== Drawer ===== */
+.drawer-scrim {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.35);
+  display: grid; place-items: center;
+  z-index: 1000; /* sits above everything to avoid header overlap */
+}
+.drawer {
+  background: #fff; border-radius: 12px; padding: 16px;
+  max-height: 90vh; overflow: auto;
+  width: min(970px, 92vw);
+  z-index: 1001;
+}
+.drawer-grid { display: grid; gap: 10px; }
+
+/* Header strips (for incidents, tasks, approvals) */
+.header-strip {
+  background: #fff7e6; border: 1px solid #fde68a; border-radius: 8px;
+  padding: 8px 10px; margin: 0 0 8px;
+}
+.header-strip-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto 1fr auto 1fr;
+  gap: 8px; align-items: center;
+}
+
+/* Key/value blocks */
+.kv .label { margin-bottom: 4px; }
+.boxish { border: 1px solid #e5e7eb; border-radius: 8px; }
+
+/* Full-width inputs in key/value blocks */
+.kv input.input,
+.kv textarea.input,
+.kv .input {
+  width: 100%;
+}
+
+/* Readonly vs editable */
+.readonly-field { background: #f3f4f6; }   /* grey */
+.editable-field { background: #e6f2ff; }   /* light blue */
+
+/* Two-column rows */
+.inline-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: center; }
+.inline-row .cell { display: flex; align-items: center; gap: 8px; }
+.inline-row .cell .input, .inline-row .cell select { min-width: 220px; }
+
+/* Assignment row */
+.assignment-row {
+  display: grid; grid-template-columns: 1fr 1fr auto; gap: 10px; align-items: center;
+}
+.assigned-box { background: #e6f2ff; }
+/*.assigned-value { }*/
+.options {
+  position: absolute; z-index: 1050; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; margin-top: 4px; max-height: 200px; overflow: auto;
+}
+.option { padding: 6px 8px; cursor: pointer; }
+.option:hover { background: #f3f4f6; }
+
+/* Re-Assign button color */
+.reassign-btn { background: #2563eb !important; color: #fff !important; }
+.reassigned-btn { background: #16a34a !important; color: #fff !important; }
+/* Make all table columns uniform across all three lists */
+.uniform-table {
+  table-layout: fixed; /* ensures colgroup widths apply */
+  width: 100%;
+}
+
+/* Column width plan (adds to ~100%) */
+.uniform-table col.col-number            { width: 14%; }
+.uniform-table col.col-summary           { width: 28%; }
+.uniform-table col.col-caller            { width: 14%; }
+.uniform-table col.col-assigned-to       { width: 14%; }
+.uniform-table col.col-assignment-group  { width: 14%; }
+.uniform-table col.col-status            { width: 8%;  }
+.uniform-table col.col-priority          { width: 8%;  }
+
+/* Consistent truncation so long values don't blow up the layout */
+.uniform-table th,
+.uniform-table td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.td-trunc {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: bottom;
+}
+/* ===== Login (four-line card) ===== */
+.login-form.four-line {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  width: 360px;              /* equal width “boxes”, centered */
+  margin: 0 auto;            /* center the form in the card */
+  text-align: left;          /* left-align labels & fields */
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+}
+
+.login-label {
+  font-weight: 600;
+  color: #1e3a8a;            /* blue label */
+  font-size: 12px;
+}
+
+.input-outline-blue {
+  border: 1px solid #1e40af; /* solid blue outline, matches card border */
+  border-radius: 6px;
+  background: #ffffff;
+  padding: 8px 10px;
+  font-size: 12px;
+  line-height: 1.2;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.password-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+
+.eye-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #1e40af;
+  border-radius: 6px;
+  background: #eff6ff;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0;
+}
+.eye-icon::before {
+  content: "👁️";
+}
+.eye-icon:hover {
+  background: #dbeafe;
+}
+
+/* Center the form nicely inside the card */
+.login-wrap .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.same-size { min-width: 140px; }
+
+
+.icon-btn.lens-btn {
+  padding: 2px 6px;
+  font-size: 14px;
+  line-height: 1;
+  border: 1px solid #60a5fa;   /* blue border */
+  background: #e0f2ff;         /* very light blue */
+  color: #0b62d6;
+  border-radius: 4px;
+  cursor: pointer;
+  vertical-align: middle;
+}
+.icon-btn.lens-btn:hover {
+  background: #d7ecff;
+}
+/* Errors */
+.error {
+  margin: 10px auto 0; max-width: 600px;
+  background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; border-radius: 8px; padding: 8px 10px;
+}
+
+/* Specific alignment for key field labels */
+.label.assigned-to,
+.label.assigned-group,
+.label.priority,
+.label.impact,
+.label.urgency,
+.label.status,
+.drawer-label.assigned-to,
+.drawer-label.assigned-group,
+.drawer-label.priority,
+.drawer-label.impact,
+.drawer-label.urgency,
+.drawer-label.status {
+  width: 150px;
+  text-align: right;
+}
+
+.matrix4 {
+  display: grid;
+  grid-template-columns: 150px 1fr 150px 1fr; /* label, value, label, value */
+  gap: 10px 14px;
+  align-items: center;
+  margin-top: 8px;
+}
+.matrix4 .rlabel {
+  text-align: right;
+  color: #1e40af;    /* blue labels */
+}
+.matrix4 .lvalue {
+  text-align: left;
+}
+.matrix4 .input,
+.matrix4 select {
+  width: 100%;
+  min-height: 32px;
+}
+/* 2-column matrix for large text fields (label 150px, right aligned) */
+.matrix2 {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 8px 12px;
+  align-items: start;
+  margin: 8px 0 12px;
+}
+
+.matrix2 .rlabel {
+  text-align: right;
+  font-weight: normal;
+  color: #1d4ed8; /* same blue you use elsewhere */
+  padding-top: 6px; /* aligns with input top */
+}
+
+.matrix2 .lvalue .input,
+.matrix2 .lvalue textarea {
+  width: 100%;
+}
+/* Small, unobtrusive lens next to read-only value */
+.lens-btn {
+  margin-left: 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;   /* big enough to tap */
+  line-height: 1;
+  padding: 2px 4px;
+  color: #2563eb;    /* blue */
+}
+.lens-btn:hover { color: #1e40af; }
+/* Make the Assigned To / Assigned Group display box match editable-field style */
+.assigned-value {
+  background: #e6f2ff;        /* light blue */
+  border: 1px solid #bcd7ff;  /* subtle blue border */
+  padding: 6px 8px;
+  border-radius: 6px;
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: normal;        /* force normal weight in case it's wrapped in <strong> anywhere */
+  width: 300px;               /* fixed width */
+}
+/* ===== Short Description Input ===== */
+textarea.input.readonly-field {
+  resize: none;
+}
+/* Activity Stream (read-only, mono, pre-wrap) */
+.activity-stream {
+  background: #f3f4f6;           /* light gray */
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 8px;
+  min-height: 60px;
+  max-height: 60px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: ui-monospace, Menlo, monospace;
+  line-height: 1.35;
+  overflow-y: scroll !important;
+  scrollbar-gutter: stable;
+  overflow-x: hidden;
+}
+
+/* Eye button for password */
+.password-row { display: flex; align-items: center; }
+
+.btn-eye {
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  margin-left: 6px;
+  border: 1px solid #2563eb;
+  border-radius: 8px;
+  background: #e6f2ff;
+  color: #2563eb;
+  cursor: pointer;
+}
+.btn-eye.on {
+  background: #2563eb;
+  color: #fff;
+}
+
+/* Ensure editable vs readonly field backgrounds are consistent */
+.input.editable-field,
+select.input.editable-field {
+  background: #e6f2ff;           /* light blue */
+  border: 1px solid #93c5fd;
+  border-radius: 8px;
+}
+
+.input.readonly-field {
+  background: #f3f4f6;           /* light gray */
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
