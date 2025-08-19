@@ -1,20 +1,6 @@
-# dependencies
 node_modules/
-# builds
 frontend/dist/
-# runtime
+backend/.env
+frontend/.env
 *.log
-# env files
-.env
-frontend/.env*
-backend/.env*
-# pm2
-.pids
-node_modules/
-dist/
-build/
-.env
-.env.local
-frontend/node_modules/
-backend/node_modules/
-
+.DS_Store

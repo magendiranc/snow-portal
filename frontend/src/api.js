@@ -1,5 +1,5 @@
 // src/api.js
-const API_BASE = 'http://localhost:4000/api';
+const API_BASE = import.meta.env.VITE_API_BASE || '/api';
 
 async function api(path, { method = 'GET', token, body } = {}) {
   const headers = { Accept: 'application/json' };
